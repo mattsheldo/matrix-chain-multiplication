@@ -51,7 +51,7 @@ Once you have the repository cloned on your machine you can run the following co
 
 To Compile:
 ```bash
-g++ main.cpp Timer.cpp
+g++ main.cpp
 ```
 To Run:
 ```bash
