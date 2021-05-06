@@ -37,7 +37,7 @@ The output is a pair of matrices we can call matrix N and matrix K. Matrix N sto
 
 ## How the Algorithm Works
 
-
+In this section I will be refering to the input array shown in the input section above to make things easier to understand. We first initialize our N and K matrices with 0's across the diagonal so that [0][0], [1][1], [2][2], etc. are all 0. Then we will start to calculate the steps need for multiplying each pair of matrices.
 
 ## Try it yourself!
 
