@@ -19,8 +19,7 @@ protected:
 
   public:
     MatrixChain(int* array, int num);
-    //Matrix multiply(Matrix a, Matrix b); //TODO - BONUS
-    Matrix dynamicChain(); //TODO
+    Matrix dynamicChain();
 
 
     void printDimensions(){
