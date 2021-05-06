@@ -30,10 +30,6 @@ void MatrixChain::generate_matrix(int rows, int cols){
   chain.push_back(matrix);
 }
 
-//Matrix MatrixChain::multiply(Matrix a, Matrix b){
-  //implement here the simple multiplication between two matrices
-//}
-
 /*
 d = deminsions
 n = size of N table (num)
@@ -46,11 +42,13 @@ Matrix MatrixChain::dynamicChain(){
   Matrix K(num, vector<int>(num, -1));
   int n = num + 1;
 
+  // Initializing the two matrices with 0's across the diagonals
   for(int i = 0; i < n - 1; i++)
   {
     N[i][i] = 0;
     K[i][i] = 0;
   }
+  // Loops across the diagonals of the matrices rather than going straight down collumns and rows
   for(int b = 1; b < (n - 1); b++)
   {
     for(int i = 0; i < (n - b - 1); i++)
@@ -58,9 +56,9 @@ Matrix MatrixChain::dynamicChain(){
       int j = i + b;
       N[i][j] = 999999999;
       int k2 = 0;
-      /*I made a slight change from the original algorithm here. The original algorithm
-      goes to j - 1 but when I did that I would skip the very first index in the K matrix,
-      which meant that everything was being compared to 999999999 which was no good.*/
+      
+      /* This loops through the different multiplication orderes for this cell and calculate the steps neeed to complete
+      the operation and see if it is less than the current solution*/
       for(int k = i; k < (j); k++)
       {
         if(N[i][j] > N[i][k] + N[k+1][j] + (dimensions[i] * dimensions[k+1] * dimensions[j+1]))
