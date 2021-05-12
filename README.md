@@ -45,7 +45,7 @@ After every entry in the diagonal has been filled out we move up a diagonal and 
 
 ![image](https://user-images.githubusercontent.com/83359136/118015690-8f567500-b322-11eb-80ff-d5ac244ddf99.png)
 
-Every diagonal incorporates an additional matrix until all are included and we have our final solution. This also means that we can use the previous step calculations for future calculations so we avoid doing the same calculations more than once. Anotherthing worth mentioning is the order we need to multiply the matrices in. Our N matrix only records steps it doesn't keep track of the order. For that we use our K matrix. It is easy to keep track of simply anytime a value is recorded in the N matrix the K matrix records 
+Every diagonal incorporates an additional matrix until all are included and we have our final solution. Another thing worth mentioning is the order we need to multiply the matrices in. Our N matrix only records steps it doesn't keep track of the order. For that we use our K matrix. It is easy to keep track of what order we are multiplying the matrices in. Simply anytime a value is recorded in the N matrix the K matrix records which ordering was just attempted in the same index as the N matrix. So if you want to know what ordering was used to calculate the steps at N[0][2] you simply check K[0][2]
 
 ![image](https://user-images.githubusercontent.com/83359136/118015720-98474680-b322-11eb-8d49-72ee46caf1ad.png)
 
