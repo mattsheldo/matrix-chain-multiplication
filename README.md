@@ -37,7 +37,17 @@ The output is a pair of matrices we can call matrix N and matrix K. Matrix N sto
 
 ## How the Algorithm Works
 
-In this section I will be refering to the input array shown in the input section above to make things easier to understand. We first initialize our N and K matrices with 0's across the diagonal so that [0][0], [1][1], [2][2], etc. are all 0. Then we will start to calculate the steps need for multiplying each pair of matrices.
+In this section I will be refering to the input array shown in the input section above to make things easier to understand. We first initialize our N and K matrices with 0's across the diagonal so that [0][0], [1][1], [2][2], etc. are all 0. Once we have initialized the N matrix we start to work our way up the top half of the table moving along the diagonals. The first diagonal represents the amount of steps necessary for different pairs of matrices to be multiplied. For example N[0][1] represents the fewest steps needed to mutliply matrix A and matrix B. 
+
+![image](https://user-images.githubusercontent.com/83359136/118015607-777ef100-b322-11eb-91de-19810b649ed5.png)
+
+After every entry in the diagonal has been filled out we move up a diagonal and start again but this time we increase the number of matrices we are mutliplying together. The first diagonal calculates A x B, B x C, and C x D but the next diagonal calculates A x B x C and B x C x D. Now it is about finding out whether A x (B x C) is better or (A x B) x C is better keeping in mind that (B x C) and (A x B) are already known from the previous diagonal. We figure out which requires the lowest steps using their deminsions then we record the best option in the N matrix. For this example the best way to multiply A x B x C requires 9000 steps and the best way to multiply B x C x D requires 6000 steps.
+
+![image](https://user-images.githubusercontent.com/83359136/118015690-8f567500-b322-11eb-80ff-d5ac244ddf99.png)
+
+Every diagonal incorporates an additional matrix until all are included and we have our final solution. This also means that we can use the previous step calculations for future calculations so we avoid doing the same calculations more than once. Anotherthing worth mentioning is the order we need to multiply the matrices in. Our N matrix only records steps it doesn't keep track of the order. For that we use our K matrix. It is easy to keep track of simply anytime a value is recorded in the N matrix the K matrix records 
+
+![image](https://user-images.githubusercontent.com/83359136/118015720-98474680-b322-11eb-8d49-72ee46caf1ad.png)
 
 ## Try it yourself!
 
